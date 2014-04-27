@@ -4,12 +4,14 @@ public class Range {
 
 	private String end;
 	private String start;
+	private String input;
 
 	public Range(String input) {
 		if ((input.startsWith("[") || input.startsWith("(")) 
 				&& (input.endsWith("]") || input.endsWith(""))) {
-			setStart(String.valueOf(input.charAt(0)));
-			setEnd(String.valueOf(input.charAt(input.length()-1)));
+			this.input = input;
+			setStart(String.valueOf(input.charAt(1)));
+			setEnd(String.valueOf(input.charAt(input.length()-2)));
 
 		} else {
 			throw new InvalidRangeArgumentException();
@@ -25,17 +27,25 @@ public class Range {
 	}
 
 	public boolean isInclusiveStart() {
-		if(this.start.equals("(")) {
+		if(this.input.startsWith("(")) {
 			return false;
 		}
 		return true;
 	}
 
 	public boolean isInclusiveEnd() {
-		if(this.end.equals(")")) {
+		if(this.input.endsWith(")")) {
 			return false;
 		}
 		return true;
+	}
+
+	public String getStart() {
+		return this.start;
+	}
+
+	public String getEnd() {
+		return this.end;
 	}
 
 }

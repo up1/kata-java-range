@@ -29,5 +29,13 @@ public class RangeTest {
 		assertFalse(range.isInclusiveStart());
 		assertFalse(range.isInclusiveEnd());
 	}
+	
+	@Test
+	public void ForInclusiveTwoAndFiveShouldStartWithTwoAndEndWithFive() throws Exception {
+		String input = "[2,5]";
+		Range range = new Range(input);
+		assertEquals("2", range.getStart());
+		assertEquals("5", range.getEnd());
+	}
 
 }
