@@ -53,5 +53,13 @@ public class RangeTest {
 		Range range = new Range(input);
 		assertArrayEquals(expectedResult, range.getResult());
 	}
+	
+	@Test
+	public void getResultFromExclusiveTwoAndFiveshouldShowNumberThreeToFour() throws Exception {
+		int[] expectedResult = {3, 4};
+		String input = "(2,5)";
+		Range range = new Range(input);
+		assertArrayEquals(expectedResult, range.getResult());
+	}
 
 }
