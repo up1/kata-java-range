@@ -21,5 +21,13 @@ public class RangeTest {
 		assertTrue(range.isInclusiveStart());
 		assertTrue(range.isInclusiveEnd());
 	}
+	
+	@Test
+	public void StartAndEndShouldHaveExclusive() throws Exception {
+		String input = "(2,5)";
+		Range range = new Range(input);
+		assertFalse(range.isInclusiveStart());
+		assertFalse(range.isInclusiveEnd());
+	}
 
 }
