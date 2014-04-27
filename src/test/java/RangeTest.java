@@ -45,5 +45,13 @@ public class RangeTest {
 		assertEquals(3, range.getStart());
 		assertEquals(4, range.getEnd());
 	}
+	
+	@Test
+	public void getResultFromInclusiveTwoAndFiveshouldShowNumberTwoToFive() throws Exception {
+		int[] expectedResult = {2, 3, 4, 5};
+		String input = "[2,5]";
+		Range range = new Range(input);
+		assertArrayEquals(expectedResult, range.getResult());
+	}
 
 }

@@ -53,4 +53,13 @@ public class Range {
 		return this.end;
 	}
 
+	public int[] getResult() {
+		int numberOfMember = this.getEnd() - this.getStart() + 1;
+		int[] result = new int[numberOfMember];
+		for(int i=0; i<numberOfMember; i++) {
+			result[i] = this.getStart() + i;
+		}
+		return result;
+	}
+
 }
