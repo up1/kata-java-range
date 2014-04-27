@@ -61,5 +61,21 @@ public class RangeTest {
 		Range range = new Range(input);
 		assertArrayEquals(expectedResult, range.getResult());
 	}
+	
+	@Test
+	public void getResultFromInclusiveTwoAndExclusiveFiveShouldShowNumberTwoToFour() throws Exception {
+		int[] expectedResult = {2, 3, 4};
+		String input = "[2,5)";
+		Range range = new Range(input);
+		assertArrayEquals(expectedResult, range.getResult());
+	}
+	
+	@Test
+	public void getResultFromExclusiveTwoAndInclusiveFiveShouldShowNumberThreeToFive() throws Exception {
+		int[] expectedResult = {3, 4, 5};
+		String input = "(2,5]";
+		Range range = new Range(input);
+		assertArrayEquals(expectedResult, range.getResult());
+	}
 
 }
