@@ -34,8 +34,16 @@ public class RangeTest {
 	public void ForInclusiveTwoAndFiveShouldStartWithTwoAndEndWithFive() throws Exception {
 		String input = "[2,5]";
 		Range range = new Range(input);
-		assertEquals("2", range.getStart());
-		assertEquals("5", range.getEnd());
+		assertEquals(2, range.getStart());
+		assertEquals(5, range.getEnd());
+	}
+	
+	@Test
+	public void ForExclusiveTwoAndFiveShouldStartWithThreeAndEndWithFour() throws Exception {
+		String input = "(2,5)";
+		Range range = new Range(input);
+		assertEquals(3, range.getStart());
+		assertEquals(4, range.getEnd());
 	}
 
 }

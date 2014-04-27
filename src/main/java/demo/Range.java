@@ -2,49 +2,54 @@ package demo;
 
 public class Range {
 
-	private String end;
-	private String start;
+	private int end;
+	private int start;
 	private String input;
 
 	public Range(String input) {
-		if ((input.startsWith("[") || input.startsWith("(")) 
-				&& (input.endsWith("]") || input.endsWith(""))) {
+		if ((input.startsWith("[") || input.startsWith("(")) && (input.endsWith("]") || input.endsWith(""))) {
 			this.input = input;
-			setStart(String.valueOf(input.charAt(1)));
-			setEnd(String.valueOf(input.charAt(input.length()-2)));
+			setStart(Integer.parseInt(String.valueOf(input.charAt(1))));
+			setEnd(Integer.parseInt(String.valueOf(input.charAt(input.length() - 2))));
 
 		} else {
 			throw new InvalidRangeArgumentException();
 		}
 	}
 
-	private void setEnd(String end) {
+	private void setEnd(int end) {
 		this.end = end;
 	}
 
-	private void setStart(String start) {
+	private void setStart(int start) {
 		this.start = start;
 	}
 
 	public boolean isInclusiveStart() {
-		if(this.input.startsWith("(")) {
+		if (this.input.startsWith("(")) {
 			return false;
 		}
 		return true;
 	}
 
 	public boolean isInclusiveEnd() {
-		if(this.input.endsWith(")")) {
+		if (this.input.endsWith(")")) {
 			return false;
 		}
 		return true;
 	}
 
-	public String getStart() {
+	public int getStart() {
+		if (!isInclusiveStart()) {
+			return this.start + 1;
+		}
 		return this.start;
 	}
 
-	public String getEnd() {
+	public int getEnd() {
+		if (!isInclusiveEnd()) {
+			return this.end - 1;
+		}
 		return this.end;
 	}
 
