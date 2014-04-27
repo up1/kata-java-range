@@ -1,7 +1,7 @@
 kata-java-range
 ===============
 
-Kata Range with Java 
+Kata Range with Java with lazy refactoring
 
 # Sequence of Test case
 1. check invalid range
